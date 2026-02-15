@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Replacer - 詳細設定</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Text Replacer - 詳細設定</h1>
+
+    <section>
+      <div class="section-title-row">
+        <h2>変換ルール</h2>
+        <button id="clearAllRulesBtn" class="danger-btn">すべて削除</button>
+      </div>
+      <table id="rulesTable">
+        <thead>
+          <tr>
+            <th class="col-enabled">有効</th>
+            <th class="col-from">変換前</th>
+            <th class="col-arrow"></th>
+            <th class="col-to">変換後</th>
+            <th class="col-regex">正規表現</th>
+            <th class="col-actions">操作</th>
+          </tr>
+        </thead>
+        <tbody id="rulesBody"></tbody>
+      </table>
+      <div class="add-row">
+        <input type="text" id="newFrom" placeholder="変換前のテキスト">
+        <span class="arrow">→</span>
+        <input type="text" id="newTo" placeholder="変換後のテキスト">
+        <label class="regex-label" title="正規表現を使用">
+          <input type="checkbox" id="newRegex">
+          <span>.*</span>
+        </label>
+        <button id="addRuleBtn">ルールを追加</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title-row">
+        <h2>対象サイト</h2>
+        <button id="clearAllSitesBtn" class="danger-btn">すべて削除</button>
+      </div>
+      <p class="hint">変換を適用するサイトのホスト名を指定します。ワイルドカード（*.example.com）に対応しています。</p>
+      <div id="sitesContainer"></div>
+      <div class="add-row">
+        <input type="text" id="newSite" placeholder="example.com または *.example.com">
+        <button id="addSiteBtn">サイトを追加</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>インポート / エクスポート</h2>
+      <p class="hint">辞書データをJSON形式でバックアップ・復元できます。</p>
+      <div class="import-export">
+        <button id="exportBtn">エクスポート</button>
+        <button id="importBtn">インポート</button>
+        <input type="file" id="importFile" accept=".json" hidden>
+      </div>
+    </section>
+
+    <div id="toast" class="toast" hidden></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

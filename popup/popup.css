@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  color: #333;
+  background: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #4a90d9;
+  color: #fff;
+}
+
+.header h1 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* トグルスイッチ */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 22px;
+  transition: 0.2s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.toggle input:checked + .slider {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.toggle input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+/* セクション */
+.section {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.section-header h2 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ルール一覧 */
+.rule-item, .site-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+  gap: 6px;
+}
+
+.rule-item input[type="checkbox"] {
+  flex-shrink: 0;
+}
+
+.rule-text {
+  flex: 1;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rule-text .from {
+  color: #c0392b;
+  text-decoration: line-through;
+}
+
+.rule-text .to {
+  color: #27ae60;
+}
+
+.rule-text .arrow {
+  color: #999;
+  margin: 0 4px;
+}
+
+.site-text {
+  flex: 1;
+  font-size: 12px;
+  color: #555;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 4px;
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  color: #e74c3c;
+}
+
+/* 追加フォーム */
+.add-rule, .add-site {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.add-rule input, .add-site input {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+}
+
+.add-rule input:focus, .add-site input:focus {
+  border-color: #4a90d9;
+}
+
+.add-rule .arrow {
+  color: #999;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.add-rule button, .add-site button {
+  padding: 5px 10px;
+  border: 1px solid #4a90d9;
+  background: #4a90d9;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.add-rule button:hover, .add-site button:hover {
+  background: #357abd;
+}
+
+#addCurrentSiteBtn {
+  background: #fff;
+  color: #4a90d9;
+  font-size: 11px;
+}
+
+#addCurrentSiteBtn:hover {
+  background: #f0f6ff;
+}
+
+/* フッター */
+.footer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+}
+
+.footer button {
+  flex: 1;
+  padding: 7px 12px;
+  border: 1px solid #4a90d9;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#applyBtn {
+  background: #4a90d9;
+  color: #fff;
+}
+
+#applyBtn:hover {
+  background: #357abd;
+}
+
+#optionsBtn {
+  background: #fff;
+  color: #4a90d9;
+}
+
+#optionsBtn:hover {
+  background: #f0f6ff;
+}
+
+/* 正規表現ラベル */
+.regex-label {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.regex-label input:checked + span {
+  color: #4a90d9;
+  font-weight: 600;
+}
+
+.from.regex {
+  font-family: monospace;
+  color: #8e44ad;
+  text-decoration: none;
+}
+
+/* 空状態 */
+.empty {
+  color: #aaa;
+  font-size: 12px;
+  font-style: italic;
+  padding: 4px 0;
+}
